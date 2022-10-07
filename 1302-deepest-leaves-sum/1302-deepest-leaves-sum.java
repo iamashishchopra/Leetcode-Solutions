@@ -14,29 +14,25 @@
  * }
  */
 class Solution {
+
     public int deepestLeavesSum(TreeNode root) {
-        if(root==null)
-            return 0;
-        
-        Queue<TreeNode> q=new LinkedList<TreeNode>();
-        
-        int sum=0;
-        
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+
+        int sum = 0;
+
         q.offer(root);
-        
-        while(!q.isEmpty()){
-            int s=q.size();
-            sum=0;
-            for(int i=0;i<s;i++){
-                TreeNode temp=q.poll();
-                sum+=temp.val;
-                if(temp.left!=null)
-                    q.offer(temp.left);
-                if(temp.right!=null)
-                    q.offer(temp.right);
+
+        while (!q.isEmpty()) {
+            int s = q.size();
+            sum = 0;
+            for (int i = 0; i < s; i++) {
+                TreeNode temp = q.poll();
+                sum += temp.val;
+                if (temp.left != null) q.offer(temp.left);
+                if (temp.right != null) q.offer(temp.right);
             }
         }
-        
+
         return sum;
     }
 }
