@@ -24,13 +24,12 @@ class Solution {
 
     private void helpMaxAncestorDiff(TreeNode root, int[] difference, List<Integer> lis) {
         if (root == null) return;
-        
+
         lis.add(root.val);
-        for(int it:lis)
-        difference[0]=Math.max(difference[0],Math.abs(root.val-it));
-        helpMaxAncestorDiff(root.left,difference,lis);
-        helpMaxAncestorDiff(root.right,difference,lis);
-        
-        lis.remove(lis.size()-1);
+        for (int it : lis) difference[0] = Math.max(difference[0], Math.abs(root.val - it));
+        helpMaxAncestorDiff(root.left, difference, lis);
+        helpMaxAncestorDiff(root.right, difference, lis);
+
+        lis.remove(lis.size() - 1);
     }
 }
