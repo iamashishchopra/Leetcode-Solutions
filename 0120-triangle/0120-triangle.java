@@ -8,8 +8,7 @@ class Solution {
     private int findMin(int i,int j,List<List<Integer>> triangle,int[][] dp){
         if(i==triangle.size()-1)
             return triangle.get(i).get(j);
-        if(j<0||j>=triangle.get(i).size())
-            return (int) 1e8;
+        
         if(dp[i][j]!=-1)
             return dp[i][j];
         int ld=triangle.get(i).get(j)+findMin(i+1,j,triangle,dp);
